@@ -251,7 +251,7 @@ Mod Integrations & Utilities
       to: '/getting-started'
       trailingIcon: i-lucide-arrow-right
     - label: Template Repository
-      to: 'https://github.com/TwelveIterationMods/balm-mod'
+      to: 'https://github.com/TwelveIterations/balm-mod'
       target: _blank
       variant: subtle
       icon: i-simple-icons-github

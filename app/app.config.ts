@@ -31,7 +31,7 @@ export default defineAppConfig({
       'aria-label': 'Discord'
     }, {
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/TwelveIterationMods/Balm',
+      'to': 'https://github.com/TwelveIterations/Balm',
       'target': '_blank',
       'aria-label': 'GitHub'
     }]
@@ -46,7 +46,7 @@ export default defineAppConfig({
       'aria-label': 'Balm on Discord'
     }, {
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/TwelveIterationMods/Balm',
+      'to': 'https://github.com/TwelveIterations/Balm',
       'target': '_blank',
       'aria-label': 'Balm on GitHub'
     }]
@@ -55,11 +55,11 @@ export default defineAppConfig({
     title: 'Table of Contents',
     bottom: {
       title: 'Community',
-      edit: 'https://github.com/TwelveIterationMods/balm-docs/edit/main/docs',
+      edit: 'https://github.com/TwelveIterations/balm-docs/edit/main/docs',
       links: [{
         icon: 'i-lucide-star',
         label: 'Star on GitHub',
-        to: 'https://github.com/TwelveIterationMods/Balm',
+        to: 'https://github.com/TwelveIterations/Balm',
         target: '_blank'
       }, {
         icon: 'i-lucide-message-circle-code',
