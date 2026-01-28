@@ -2,5 +2,5 @@ dependencies {
     modImplementation(libs.balmFabric) {
         changing = libs.versions.balm.get().contains("SNAPSHOT")
     }
-    implementation(libs.kumaFabric)
+    modImplementation(libs.kumaFabric)
 }
