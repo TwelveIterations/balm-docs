@@ -28,7 +28,7 @@ type LibraryVersions = {
   'forge': string | null
   'balm': string | null
   'java': string | null
-  'kuma-api': string | null
+  'kuma': string | null
 } | null
 
 type TemplateProperties = {
@@ -316,7 +316,7 @@ async function generateProject() {
                 :model-value="true"
                 disabled
               />
-              <span class="text-xs text-muted">{{ libraryVersions.balm }}</span>
+              <span class="text-xs text-muted">{{ libraryVersions.balm }} with Kuma {{ libraryVersions.kuma }}</span>
             </div>
 
             <USeparator />

@@ -13,12 +13,17 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import <%= it.package %>.<%= it.mainClass %>;
+import <%= it.package %>.client.<%= it.mainClass %>Client;
 
 @Mod(<%= it.mainClass %>.MOD_ID)
 public class Forge<%= it.mainClass %> {
 
     public Forge<%= it.mainClass %>(FMLJavaModLoadingContext context) {
+        <% if (it.minecraftVersion !== '1.21.1') { %>
         final var loadContext = new ForgeLoadContext(context.getModBusGroup());
+        <% } else { %>
+        final var loadContext = new ForgeLoadContext(context.getModEventBus());
+        <% } %>
         Balm.initializeMod(<%= it.mainClass %>.MOD_ID, loadContext, <%= it.mainClass %>::initialize);
         if (FMLEnvironment.dist.isClient()) {
             BalmClient.initializeMod(<%= it.mainClass %>.MOD_ID, loadContext, <%= it.mainClass %>Client::initialize);

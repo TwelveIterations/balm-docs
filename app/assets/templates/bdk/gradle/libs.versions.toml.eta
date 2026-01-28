@@ -11,6 +11,7 @@ forge = "<%= it.libraryVersions.forge %>"
 # See https://fabricmc.net/develop/
 fabricApi = "<%= it.libraryVersions.fabric.apiVersion %>"
 fabricLoader = "<%= it.libraryVersions.fabric.loaderVersion %>"
+kuma = "<%= it.libraryVersions.kuma %>"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -21,6 +22,11 @@ balmCommon = { module = "net.blay09.mods:balm-common", version.ref = "balm" }
 balmNeoForge = { module = "net.blay09.mods:balm-neoforge", version.ref = "balm" }
 balmForge = { module = "net.blay09.mods:balm-forge", version.ref = "balm" }
 balmFabric = { module = "net.blay09.mods:balm-fabric", version.ref = "balm" }
+
+kumaCommon = { module = "net.blay09.mods:kuma-api-common", version.ref = "kuma" }
+kumaNeoForge = { module = "net.blay09.mods:kuma-api-neoforge", version.ref = "kuma" }
+kumaForge = { module = "net.blay09.mods:kuma-api-forge", version.ref = "kuma" }
+kumaFabric = { module = "net.blay09.mods:kuma-api-fabric", version.ref = "kuma" }
 
 neoForm = { module = "net.neoforged:neoform", version.ref = "neoForm" }
 neoForge = { module = "net.neoforged:neoforge", version.ref = "neoForge" }

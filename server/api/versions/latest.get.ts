@@ -20,6 +20,6 @@ export default defineEventHandler(async (event) => {
     'forge': await getForgeVersion(minecraft),
     'balm': await getNexusVersion(minecraft, 'balm-common'),
     'java': '21',
-    'kuma-api': await getNexusVersion(minecraft, 'kuma-api-common')
+    'kuma': await getNexusVersion(minecraft == '1.21.1' ? '1.21.0': minecraft, 'kuma-api-common')
   }
 })
