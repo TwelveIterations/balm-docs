@@ -142,7 +142,7 @@ function render(template: string, data: ExpandedTemplateProperties) {
 function addProjectFiles(zip: JSZip, data: TemplateProperties) {
   const root = zip.folder('')!
 
-  const prefix = '../../assets/templates/bdk/'
+  const prefix = `../../assets/templates/bdk/${data.minecraftVersion}/`
   const groupPath = data.group.replace(/\./g, '/') + '/' + data.modId
   const mainClass = data.projectName
     .trim()
@@ -151,8 +151,13 @@ function addProjectFiles(zip: JSZip, data: TemplateProperties) {
     .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
     .join('')
 
-  console.log(etaTemplates)
-  for (const [path, template] of Object.entries(etaTemplates)) {
+  // Filter templates to only include those for the selected Minecraft version
+  const versionSpecificTemplates = Object.fromEntries(
+    Object.entries(etaTemplates).filter(([path]) => path.startsWith(prefix))
+  )
+
+  console.log(versionSpecificTemplates)
+  for (const [path, template] of Object.entries(versionSpecificTemplates)) {
     const relative = path.startsWith(prefix) ? path.slice(prefix.length) : path
     let outputPath = relative.replace(/\.eta$/, '')
 
