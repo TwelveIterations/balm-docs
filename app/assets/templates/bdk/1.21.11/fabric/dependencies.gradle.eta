@@ -1,0 +1,8 @@
+dependencies {
+    modImplementation(libs.balmFabric) {
+        changing = libs.versions.balm.get().contains("SNAPSHOT")
+    }
+    <% if (it.minecraftVersion == '1.21.1') { %>
+    implementation(libs.kumaFabric)
+    <% } %>
+}
