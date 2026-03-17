@@ -8,6 +8,8 @@ Make sure to install the dependencies:
 pnpm install
 ```
 
+To enable Umami analytics, set `NUXT_UMAMI_HOST` and `NUXT_UMAMI_ID` in your environment. `NUXT_UMAMI_TAG` is optional.
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:

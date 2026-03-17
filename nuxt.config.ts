@@ -1,3 +1,8 @@
+const umamiHost = process.env.NUXT_UMAMI_HOST || process.env.NUXT_PUBLIC_UMAMI_HOST || ''
+const umamiId = process.env.NUXT_UMAMI_ID || process.env.NUXT_PUBLIC_UMAMI_ID || ''
+const umamiTag = process.env.NUXT_UMAMI_TAG || process.env.NUXT_PUBLIC_UMAMI_TAG || ''
+const hasUmamiConfig = Boolean(umamiHost && umamiId)
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -7,7 +12,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-og-image',
     'nuxt-llms',
-    '@nuxtjs/mcp-toolkit'
+    '@nuxtjs/mcp-toolkit',
+    'nuxt-umami'
   ],
 
   devtools: {
@@ -107,5 +113,13 @@ export default defineNuxtConfig({
 
   mcp: {
     name: 'Balm Documentation'
+  },
+
+  umami: {
+    enabled: hasUmamiConfig,
+    host: umamiHost || 'https://umami.invalid',
+    id: umamiId || 'disabled',
+    tag: umamiTag || null,
+    ignoreLocalhost: true
   }
 })
