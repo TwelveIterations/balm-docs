@@ -14,12 +14,12 @@ export default defineEventHandler(async (event) => {
   }
 
   return {
-    'neoforge': await getNeoForgeVersion(minecraft),
-    'neoform': await getNeoFormVersion(minecraft),
-    'fabric': await getFabricVersion(minecraft),
-    'forge': await getForgeVersion(minecraft),
-    'balm': await getNexusVersion(minecraft, 'balm-common'),
-    'java': '21',
-    'kuma': await getNexusVersion(minecraft == '1.21.1' ? '1.21.0': minecraft, 'kuma-api-common')
+    neoforge: await getNeoForgeVersion(minecraft),
+    neoform: await getNeoFormVersion(minecraft),
+    fabric: await getFabricVersion(minecraft),
+    forge: await getForgeVersion(minecraft),
+    balm: await getNexusVersion(minecraft, 'balm-common'),
+    java: '21',
+    kuma: await getNexusVersion(minecraft == '1.21.1' ? '1.21.0' : minecraft, 'kuma-api-common')
   }
 })

@@ -19,16 +19,16 @@ const etaTemplates = import.meta.glob('../../assets/templates/bdk/**/*.eta', {
 }) as Record<string, string>
 
 type LibraryVersions = {
-  'neoforge': string | null
-  'neoform': string | null
-  'fabric': {
+  neoforge: string | null
+  neoform: string | null
+  fabric: {
     apiVersion: string | null
     loaderVersion: string | null
   } | null
-  'forge': string | null
-  'balm': string | null
-  'java': string | null
-  'kuma': string | null
+  forge: string | null
+  balm: string | null
+  java: string | null
+  kuma: string | null
 } | null
 
 type TemplateProperties = {
