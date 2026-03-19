@@ -24,49 +24,66 @@ export default defineAppConfig({
     },
     search: true,
     colorMode: true,
-    links: [{
-      'icon': 'i-simple-icons-discord',
-      'to': 'https://discord.gg/36qHFMNgAh',
-      'target': '_blank',
-      'aria-label': 'Discord'
-    }, {
-      'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/TwelveIterations/Balm',
-      'target': '_blank',
-      'aria-label': 'GitHub'
-    }]
+    links: [
+      {
+        'icon': 'i-simple-icons-discord',
+        'to': 'https://discord.gg/36qHFMNgAh',
+        'target': '_blank',
+        'aria-label': 'Discord'
+      },
+      {
+        'icon': 'i-simple-icons-github',
+        'to': 'https://github.com/TwelveIterations/Balm',
+        'target': '_blank',
+        'aria-label': 'GitHub'
+      }
+    ]
   },
   footer: {
     credits: `Copyright © ${new Date().getFullYear()} Jean Baker. All Rights Reserved.`,
     colorMode: false,
-    links: [{
-      'icon': 'i-simple-icons-discord',
-      'to': 'https://discord.gg/36qHFMNgAh',
-      'target': '_blank',
-      'aria-label': 'Balm on Discord'
-    }, {
-      'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/TwelveIterations/Balm',
-      'target': '_blank',
-      'aria-label': 'Balm on GitHub'
-    }]
+    links: [
+      { label: 'Privacy Policy', to: '/privacy' },
+      {
+        label: 'Legal Notice',
+        to: '/legal'
+      },
+      {
+        'icon': 'i-simple-icons-discord',
+        'to': 'https://discord.gg/36qHFMNgAh',
+        'target': '_blank',
+        'aria-label': 'Balm on Discord'
+      },
+      {
+        'icon': 'i-simple-icons-github',
+        'to': 'https://github.com/TwelveIterations/Balm',
+        'target': '_blank',
+        'aria-label': 'Balm on GitHub'
+      }
+    ]
   },
   toc: {
     title: 'Table of Contents',
     bottom: {
       title: 'Community',
       edit: 'https://github.com/TwelveIterations/balm-docs/edit/main/docs',
-      links: [{
-        icon: 'i-lucide-star',
-        label: 'Star on GitHub',
-        to: 'https://github.com/TwelveIterations/Balm',
-        target: '_blank'
-      }, {
-        icon: 'i-lucide-message-circle-code',
-        label: 'Chat on Discord',
-        to: 'https://discord.gg/36qHFMNgAh',
-        target: '_blank'
-      }]
+      links: [
+        {
+          icon: 'i-lucide-star',
+          label: 'Star on GitHub',
+          to: 'https://github.com/TwelveIterations/Balm',
+          target: '_blank'
+        },
+        {
+          icon: 'i-lucide-message-circle-code',
+          label: 'Chat on Discord',
+          to: 'https://discord.gg/36qHFMNgAh',
+          target: '_blank'
+        }
+      ]
     }
+  },
+  contact: {
+    email: 'info@twelveiterations.com'
   }
 })
