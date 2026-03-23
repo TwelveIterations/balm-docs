@@ -1,6 +1,6 @@
 ---
 title: Legal Notice
-group: Legal
+navigation: false
 ---
 
 #### Information according to Section 5 of Germany's DDG (Digitale-Dienste-Gesetz, or Digital Services Act)

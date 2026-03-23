@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: "Last Update: April 22, 2025"
-group: Legal
+navigation: false
 ---
 
 {{ $doc.appAuthor }} ("us", "we", or "our") operates {{ $doc.appName }} (the "Site"). This Privacy Policy informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of the Site.
