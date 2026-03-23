@@ -29,7 +29,7 @@ export default defineNuxtConfig({
           searchDepth: 1
         },
         highlight: {
-          langs: ['json', 'toml', 'java', 'groovy']
+          langs: ['json', 'toml', 'java', 'groovy', 'diff']
         }
       }
     }
