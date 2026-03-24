@@ -3,14 +3,15 @@ package <%= it.package %>.neoforge;
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.neoforge.platform.runtime.NeoForgeLoadContext;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import <%= it.package %>.<%= it.mainClass %>;
 
 @Mod(<%= it.mainClass %>.MOD_ID)
 public class NeoForge<%= it.mainClass %> {
 
-    public NeoForge<%= it.mainClass %>(IEventBus modEventBus) {
-        final var context = new NeoForgeLoadContext(modEventBus);
+    public NeoForge<%= it.mainClass %>(ModContainer modContainer, IEventBus modEventBus) {
+        final var context = new NeoForgeLoadContext(modContainer, modEventBus);
         Balm.initializeMod(<%= it.mainClass %>.MOD_ID, context, <%= it.mainClass %>::initialize);
     }
 }
