@@ -2,5 +2,6 @@ dependencies {
     implementation(libs.balmCommon) {
         changing = libs.versions.balm.get().endsWith("SNAPSHOT")
     }
+    accessTransformers(libs.balmCommon)
     implementation(libs.kumaCommon)
 }
