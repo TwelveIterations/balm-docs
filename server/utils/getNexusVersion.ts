@@ -2,7 +2,7 @@ import searchNexus from './searchNexus'
 
 export default async function (minecraft: string, artifact: string) {
   const repository = 'maven-releases'
-  let versionPrefix = minecraft.substring(2) + '.*'
+  let versionPrefix = (minecraft.startsWith('1.') ? minecraft.substring(2) : minecraft) + '.*'
   if (minecraft == '1.20.1' && artifact == 'balm-common') {
     versionPrefix = '7.*'
   } else if (minecraft == '1.21.1' && artifact == 'balm-common') {
@@ -22,10 +22,12 @@ export default async function (minecraft: string, artifact: string) {
         && !asset.maven2.classifier
     )
     const parts = version.name.split('-')
-    let gameVersion
-      = '1.' + version.version.split('-')[0]!.split('.').slice(0, 2).join('.')
-    if (gameVersion.endsWith('.0')) {
-      gameVersion = gameVersion.slice(0, -2)
+    let gameVersion = version.version.split('-')[0]!.split('.').slice(0, 2).join('.')
+    if (gameVersion.startsWith('21')) {
+      gameVersion = '1.' + gameVersion
+      if (gameVersion.endsWith('.0')) {
+        gameVersion = gameVersion.slice(0, -2)
+      }
     }
     return {
       name: parts[0]!,
