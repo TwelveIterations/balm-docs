@@ -241,9 +241,9 @@ async function generateProject() {
       minecraftVersion: form.minecraftVersion,
       modId: form.modId || recommendedModId.value,
       group: form.group,
-      neoforge: form.neoforge,
-      fabric: form.fabric,
-      forge: form.forge,
+      neoforge: Boolean(libraryVersions.value?.neoforge && form.neoforge),
+      fabric: Boolean(libraryVersions.value?.fabric && form.fabric),
+      forge: Boolean(libraryVersions.value?.forge && form.forge),
       libraryVersions: libraryVersions.value
     })
 
