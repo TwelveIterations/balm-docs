@@ -7,7 +7,7 @@ plugins {
     alias libs.plugins.modrinthMinotaur
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version)
 
 minecraft {
     mappings channel: 'official', version: libs.minecraft.get().version
@@ -23,6 +23,7 @@ minecraft {
     }
 }
 
+apply from: rootProject.file('repositories.gradle')
 repositories {
     maven minecraft.mavenizer
     maven fg.forgeMaven
@@ -30,6 +31,7 @@ repositories {
     mavenCentral()
 }
 
+apply from: 'dependencies.gradle'
 dependencies {
     def mcVersion = libs.minecraft.get().version
     def forgeVersion = libs.forge.get().version
@@ -48,9 +50,6 @@ tasks.named('jar', Jar) {
 }
 
 sourceSets.main.resources.srcDir 'src/generated/resources'
-
-apply from: rootProject.file('repositories.gradle')
-apply from: 'dependencies.gradle'
 
 tasks.register('curseforge', TaskPublishCurseForge) {
     dependsOn('build')
