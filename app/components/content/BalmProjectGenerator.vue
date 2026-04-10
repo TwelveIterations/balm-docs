@@ -218,7 +218,7 @@ function addProjectFiles(zip: JSZip, data: TemplateProperties) {
         ...data,
         mainClass,
         package: data.group + '.' + data.modId,
-        modVersion: data.minecraftVersion.replaceAll(/^1\./g, '').replaceAll(/([0-9]+\.[0-9]+)[.-].+/g, '$1') + '.0'
+        modVersion: (data.minecraftVersion.startsWith('1') ? data.minecraftVersion.replaceAll(/^1\./g, '') + '.0' : data.minecraftVersion + '.0.0').replaceAll(/([0-9]+\.[0-9]+)[.-].+/g, '$1')
       })
     )
   }

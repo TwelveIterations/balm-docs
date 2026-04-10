@@ -31,13 +31,13 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'dependencies.gradle'
 dependencies {
     def mcVersion = libs.minecraft.get().version
     def forgeVersion = libs.forge.get().version
     implementation minecraft.dependency("net.minecraftforge:forge:$mcVersion-$forgeVersion")
     annotationProcessor 'net.minecraftforge:eventbus-validator:7.0.0'
 }
+apply from: 'dependencies.gradle'
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
