@@ -2,24 +2,28 @@ import getNeoForgeVersion from '~~/server/utils/getNeoForgeVersion'
 import getNeoFormVersion from '~~/server/utils/getNeoFormVersion'
 import getForgeVersion from '~~/server/utils/getForgeVersion'
 import getFabricVersion from '~~/server/utils/getFabricVersion'
+import getLatestMinecraftPatchVersion from '~~/server/utils/getLatestMinecraftPatchVersion'
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
-  const minecraft = query.minecraft as string
-  if (!minecraft || typeof minecraft !== 'string') {
+  const requestedMinecraft = query.minecraft as string
+  if (!requestedMinecraft || typeof requestedMinecraft !== 'string') {
     throw createError({
       statusCode: 400,
       statusMessage: 'minecraft should be a string'
     })
   }
 
+  const minecraft = await getLatestMinecraftPatchVersion(requestedMinecraft)
+
   return {
-    neoforge: await getNeoForgeVersion(minecraft),
+    minecraft,
+    neoforge: await getNeoForgeVersion(requestedMinecraft),
     neoform: await getNeoFormVersion(minecraft),
     fabric: await getFabricVersion(minecraft),
     forge: await getForgeVersion(minecraft),
-    balm: await getNexusVersion(minecraft, 'balm-common'),
-    java: minecraft == '26.1' ? '25' : '21',
-    kuma: await getNexusVersion(minecraft == '1.21.1' ? '1.21.0' : minecraft, 'kuma-api-common')
+    balm: await getNexusVersion(requestedMinecraft, 'balm-common'),
+    java: requestedMinecraft == '26.1' ? '25' : '21',
+    kuma: await getNexusVersion(requestedMinecraft == '1.21.1' ? '1.21.0' : requestedMinecraft, 'kuma-api-common')
   }
 })

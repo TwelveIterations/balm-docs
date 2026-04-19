@@ -6,6 +6,11 @@ export default async function () {
     throw new Error('failed to fetch minecraft version manifest')
   }
 
-  const json = await response.json()
+  const json = await response.json() as {
+    versions: {
+      id: string
+      type: string
+    }[]
+  }
   return json.versions.filter(it => it.type === 'release').map(it => it.id)
 }

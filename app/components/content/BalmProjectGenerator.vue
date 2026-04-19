@@ -19,6 +19,7 @@ const etaTemplates = import.meta.glob('../../assets/templates/bdk/**/*.eta', {
 }) as Record<string, string>
 
 type LibraryVersions = {
+  minecraft: string
   neoforge: string | null
   neoform: string | null
   fabric: {
@@ -35,6 +36,7 @@ type TemplateProperties = {
   projectName: string
   modId: string
   group: string
+  templateMinecraftVersion: string
   minecraftVersion: string
   neoforge: boolean
   fabric: boolean
@@ -142,7 +144,7 @@ function render(template: string, data: ExpandedTemplateProperties) {
 function addProjectFiles(zip: JSZip, data: TemplateProperties) {
   const root = zip.folder('')!
 
-  const prefix = `../../assets/templates/bdk/${data.minecraftVersion}/`
+  const prefix = `../../assets/templates/bdk/${data.templateMinecraftVersion}/`
   const groupPath = data.group.replace(/\./g, '/') + '/' + data.modId
   const mainClass = data.projectName
     .trim()
@@ -238,7 +240,8 @@ async function generateProject() {
     const zip = new JSZip()
     addProjectFiles(zip, {
       projectName: form.projectName,
-      minecraftVersion: form.minecraftVersion,
+      templateMinecraftVersion: form.minecraftVersion,
+      minecraftVersion: libraryVersions.value?.minecraft ?? form.minecraftVersion,
       modId: form.modId || recommendedModId.value,
       group: form.group,
       neoforge: Boolean(libraryVersions.value?.neoforge && form.neoforge),
@@ -257,7 +260,7 @@ async function generateProject() {
     document.body.removeChild(link)
     URL.revokeObjectURL(url)
   } catch (err) {
-    errorMessage.value = err?.message || 'Failed to generate project.'
+    errorMessage.value = err instanceof Error ? err.message : 'Failed to generate project.'
     console.error(err)
   } finally {
     isGenerating.value = false
