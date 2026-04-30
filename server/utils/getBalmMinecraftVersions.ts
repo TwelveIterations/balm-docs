@@ -9,7 +9,8 @@ export default async function () {
     '26.1': '26.1.*'
   }
   for (const [version, classifier] of Object.entries(legacyVersions)) {
-    const versions = await searchNexus('maven-releases', 'net.blay09.mods', 'balm-common', classifier)
+    const versions = (await searchNexus('maven-public', 'net.blay09.mods', 'balm-common', classifier))
+      .filter(it => it.repository === 'maven-releases')
     if (versions.length) {
       result.push(version)
     }
