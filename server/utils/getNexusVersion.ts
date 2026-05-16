@@ -1,10 +1,10 @@
 import searchNexus from './searchNexus'
 
 export default async function (minecraft: string, artifact: string) {
-  const repository = 'maven-releases'
+  const repository = 'maven-public'
   let versionPrefix = (minecraft.startsWith('1.') ? minecraft.substring(2) : minecraft) + '.*'
   if (minecraft == '1.20.1' && artifact == 'balm-common') {
-    versionPrefix = '7.*'
+    versionPrefix = '7.3.*'
   } else if (minecraft == '1.21.1' && artifact == 'balm-common') {
     versionPrefix = '21.0.*'
   }
@@ -14,7 +14,8 @@ export default async function (minecraft: string, artifact: string) {
     artifact,
     versionPrefix
   )
-  const jars = versions.map((version) => {
+  const releaseVersions = versions.filter(it => it.repository === 'maven-releases')
+  const jars = releaseVersions.map((version) => {
     const jarAsset = version.assets.find(
       asset =>
         asset.contentType == 'application/java-archive'
