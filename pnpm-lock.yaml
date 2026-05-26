@@ -32,18 +32,6 @@ importers:
       '@nuxtjs/mcp-toolkit':
         specifier: 0.5.1
         version: 0.5.1(magicast@0.5.3)(zod@4.4.3)
-      '@oxc-minify/binding-linux-x64-gnu':
-        specifier: ^0.99.0
-        version: 0.99.0
-      '@oxc-parser/binding-linux-x64-gnu':
-        specifier: ^0.99.0
-        version: 0.99.0
-      '@oxc-resolver/binding-linux-x64-gnu':
-        specifier: ^11.14.0
-        version: 11.19.1
-      '@oxc-transform/binding-linux-x64-gnu':
-        specifier: ^0.99.0
-        version: 0.99.0
       '@vueuse/core':
         specifier: ^12.5.0
         version: 12.8.2(typescript@5.9.3)
@@ -68,9 +56,6 @@ importers:
       nuxt-umami:
         specifier: 3.2.1
         version: 3.2.1(magicast@0.5.3)
-      oxc-parser:
-        specifier: ^0.132.0
-        version: 0.132.0
       zod:
         specifier: ^4.1.13
         version: 4.4.3
