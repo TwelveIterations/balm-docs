@@ -9,16 +9,16 @@ importers:
   .:
     dependencies:
       '@iconify-json/lucide':
-        specifier: ^1.2.108
+        specifier: ^1.2.75
         version: 1.2.108
       '@iconify-json/simple-icons':
-        specifier: ^1.2.83
+        specifier: ^1.2.60
         version: 1.2.83
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.50
+        specifier: ^1.2.36
         version: 1.2.50
       '@nuxt/content':
-        specifier: ^3.14.0
+        specifier: ^3.8.2
         version: 3.14.0(better-sqlite3@12.10.0)(magicast@0.5.3)
       '@nuxt/fonts':
         specifier: ^0.14.0
@@ -27,7 +27,7 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(db0@0.3.4(better-sqlite3@12.10.0))(ioredis@5.10.1)(magicast@0.5.3)(srvx@0.11.15)
       '@nuxt/ui':
-        specifier: ^4.7.1
+        specifier: ^4.2.1
         version: 4.7.1(@internationalized/date@3.12.1)(@internationalized/number@3.6.6)(@nuxt/content@3.14.0(better-sqlite3@12.10.0)(magicast@0.5.3))(@tiptap/extensions@3.23.5(@tiptap/core@3.23.5(@tiptap/pm@3.23.5))(@tiptap/pm@3.23.5))(@tiptap/y-tiptap@3.0.3(prosemirror-model@1.25.7)(prosemirror-state@1.4.4)(prosemirror-view@1.41.8)(y-protocols@1.0.7(yjs@13.6.30))(yjs@13.6.30))(change-case@5.4.4)(db0@0.3.4(better-sqlite3@12.10.0))(embla-carousel@8.6.0)(ioredis@5.10.1)(magicast@0.5.3)(tailwindcss@4.3.0)(typescript@5.9.3)(vite@7.3.3(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.47.1)(yaml@2.9.0))(vue-router@5.0.7(@vue/compiler-sfc@3.5.34)(vue@3.5.34(typescript@5.9.3)))(vue@3.5.34(typescript@5.9.3))(yjs@13.6.30)(zod@4.4.3)
       '@nuxtjs/mcp-toolkit':
         specifier: 0.5.1
@@ -39,16 +39,16 @@ importers:
         specifier: ^0.99.0
         version: 0.99.0
       '@oxc-resolver/binding-linux-x64-gnu':
-        specifier: ^11.19.1
+        specifier: ^11.14.0
         version: 11.19.1
       '@oxc-transform/binding-linux-x64-gnu':
         specifier: ^0.99.0
         version: 0.99.0
       '@vueuse/core':
-        specifier: ^12.8.2
+        specifier: ^12.5.0
         version: 12.8.2(typescript@5.9.3)
       better-sqlite3:
-        specifier: ^12.10.0
+        specifier: ^12.4.6
         version: 12.10.0
       eta:
         specifier: ^3.5.0
@@ -63,7 +63,7 @@ importers:
         specifier: 0.1.3
         version: 0.1.3(magicast@0.5.3)
       nuxt-og-image:
-        specifier: ^6.5.1
+        specifier: ^6.4.9
         version: 6.5.1(f1175454d846291dd247d1ff3f3d8adc)
       nuxt-umami:
         specifier: 3.2.1
@@ -72,20 +72,20 @@ importers:
         specifier: ^0.132.0
         version: 0.132.0
       zod:
-        specifier: ^4.4.3
+        specifier: ^4.1.13
         version: 4.4.3
     devDependencies:
       '@nuxt/eslint':
-        specifier: ^1.15.2
+        specifier: ^1.10.0
         version: 1.15.2(@typescript-eslint/utils@8.59.4(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(@vue/compiler-sfc@3.5.34)(eslint@9.39.4(jiti@2.7.0))(magicast@0.5.3)(typescript@5.9.3)(vite@7.3.3(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.47.1)(yaml@2.9.0))
       eslint:
-        specifier: ^9.39.4
+        specifier: ^9.39.1
         version: 9.39.4(jiti@2.7.0)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vue-tsc:
-        specifier: ^3.3.1
+        specifier: ^3.1.5
         version: 3.3.1(typescript@5.9.3)
 
 packages:
@@ -1276,7 +1276,6 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-minify/binding-linux-x64-musl@0.131.0':
     resolution: {integrity: sha512-CNG3/hPE6MxdLikfLq5l0aZMvJ3W5AP1aoVjzQ1Itokv5sbfBcW0fp6Srn8mB86CyAqO9e7dbffZVOWBDVkhgw==}
@@ -1501,7 +1500,6 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-parser/binding-linux-x64-musl@0.131.0':
     resolution: {integrity: sha512-b2BO82O8azXAyf7EUgOPKu145nWypbNyk07HbU09fkzhm9lEA5oPvaN/M8Nlo7tOErVTa2WOgS4QbOnxAPXdDQ==}
@@ -1683,7 +1681,6 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@oxc-transform/binding-linux-x64-musl@0.131.0':
     resolution: {integrity: sha512-Du2CxlBfC98EV3hOAmLVSUgP0JgqM9F47lRv9v43T4sGPcQVOjs9wffUybGUUraG9unmBZ4dgpMAqlCq0k3dGw==}
