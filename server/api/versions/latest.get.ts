@@ -16,6 +16,16 @@ export default defineEventHandler(async (event) => {
 
   const minecraft = await getLatestMinecraftPatchVersion(requestedMinecraft)
 
+  const getJavaVersionForMinecraft = (minecraftVersion: string) => {
+    switch (minecraftVersion) {
+      case '26.1':
+      case '26.2':
+        return '25'
+      default:
+        return '21'
+    }
+  }
+
   return {
     minecraft,
     neoforge: await getNeoForgeVersion(requestedMinecraft),
@@ -23,7 +33,7 @@ export default defineEventHandler(async (event) => {
     fabric: await getFabricVersion(minecraft),
     forge: await getForgeVersion(minecraft),
     balm: await getNexusVersion(requestedMinecraft, 'balm-common'),
-    java: requestedMinecraft == '26.1' ? '25' : '21',
+    java: getJavaVersionForMinecraft(requestedMinecraft),
     kuma: await getNexusVersion(requestedMinecraft == '1.21.1' ? '1.21.0' : requestedMinecraft, 'kuma-api-common')
   }
 })
