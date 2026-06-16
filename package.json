@@ -35,5 +35,8 @@
     "typescript": "^5.9.3",
     "vue-tsc": "^3.3.2"
   },
+  "resolutions": {
+    "unimport": "4.1.1"
+  },
   "packageManager": "pnpm@10.25.0"
 }
