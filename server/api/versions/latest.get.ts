@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'minecraft should be a string'
     })
   }
+  const allowSnapshots = query.allowSnapshots === 'true'
 
   const minecraft = await getLatestMinecraftPatchVersion(requestedMinecraft)
 
@@ -32,7 +33,7 @@ export default defineEventHandler(async (event) => {
     neoform: await getNeoFormVersion(minecraft),
     fabric: await getFabricVersion(minecraft),
     forge: await getForgeVersion(minecraft),
-    balm: await getNexusVersion(requestedMinecraft, 'balm-common'),
+    balm: await getNexusVersion(requestedMinecraft, 'balm-common', { allowSnapshots }),
     java: getJavaVersionForMinecraft(requestedMinecraft),
     kuma: await getNexusVersion(requestedMinecraft == '1.21.1' ? '1.21.0' : requestedMinecraft, 'kuma-api-common')
   }

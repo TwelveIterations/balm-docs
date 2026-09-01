@@ -16,6 +16,7 @@ type ProsePre = ComponentConfig<typeof theme, AppConfig, 'pre', 'ui.prose'>
 interface Props {
   minecraft?: string
   hideHeader?: boolean
+  allowSnapshots?: boolean
 }
 
 interface LatestVersionsResponse {
@@ -50,14 +51,14 @@ const minecraftVersion = computed(
 const versions = ref<LatestVersionsResponse | null>(null)
 
 watch(
-  minecraftVersion,
-  async (minecraft) => {
+  [minecraftVersion, () => props.allowSnapshots],
+  async ([minecraft]) => {
     if (!minecraft) {
       versions.value = null
       return
     }
     versions.value = await $fetch<LatestVersionsResponse>('/api/versions/latest', {
-      query: { minecraft }
+      query: { minecraft, allowSnapshots: props.allowSnapshots || undefined }
     })
   },
   { immediate: true }

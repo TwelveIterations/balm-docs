@@ -1,6 +1,10 @@
 import searchNexus from './searchNexus'
 
-export default async function (minecraft: string, artifact: string) {
+export default async function (
+  minecraft: string,
+  artifact: string,
+  options: { allowSnapshots?: boolean } = {}
+) {
   const repository = 'maven-public'
   let versionPrefix = (minecraft.startsWith('1.') ? minecraft.substring(2) : minecraft) + '.*'
   if (minecraft == '1.20.1' && artifact == 'balm-common') {
@@ -14,8 +18,13 @@ export default async function (minecraft: string, artifact: string) {
     artifact,
     versionPrefix
   )
-  const releaseVersions = versions.filter(it => it.repository === 'maven-releases')
-  const jars = releaseVersions.map((version) => {
+  const eligibleVersions = options.allowSnapshots
+    ? versions
+    : versions.filter(it => it.repository === 'maven-releases')
+  const jars = eligibleVersions.map((version) => {
+    const displayVersion = version.repository === 'maven-snapshots'
+      ? version.version.replace(/-\d{8}\.\d{6}-\d+$/, '-SNAPSHOT')
+      : version.version
     const jarAsset = version.assets.find(
       asset =>
         asset.contentType == 'application/java-archive'
@@ -34,7 +43,7 @@ export default async function (minecraft: string, artifact: string) {
       name: parts[0]!,
       loader: parts[1]!,
       gameVersion,
-      version: version.version,
+      version: displayVersion,
       downloadUrl:
         jarAsset?.downloadUrl
           .replace('maven-snapshots', 'maven-public')
