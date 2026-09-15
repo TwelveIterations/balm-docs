@@ -7,7 +7,8 @@ export default async function () {
     '1.21.1': '21.0.*',
     '1.21.11': '21.11.*',
     '26.1': '26.1.*',
-    '26.2': '26.2.*'
+    '26.2': '26.2.*',
+    '26.3': '26.3.*'
   }
   for (const [version, classifier] of Object.entries(legacyVersions)) {
     const versions = (await searchNexus('maven-public', 'net.blay09.mods', 'balm-common', classifier))

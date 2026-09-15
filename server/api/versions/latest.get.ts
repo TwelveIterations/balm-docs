@@ -21,6 +21,8 @@ export default defineEventHandler(async (event) => {
     switch (minecraftVersion) {
       case '26.1':
       case '26.2':
+      case '26.3':
+      case '26.4':
         return '25'
       default:
         return '21'
